@@ -6,6 +6,9 @@ from copy import deepcopy
 
 H_PATH = "H_matrix_vikidia.npy"
 PI_PATH = "pi"
+TRAZI = None
+# TRAZI = "cat"
+# TRAZI = "cat"
 
 # isti kod kao u jupiter notebooku, samo popravljen
 def get_H_11_and_H_12(H):
@@ -56,8 +59,22 @@ def main():
     print(H.shape)
     w = np.ones((len(H),1))
     w = w / sum(w)
-    v = np.ones((len(H),1))
+    search_f = open("search.txt", "rb")
+    search = pickle.load(search_f)
+    print(search)
+
+    if TRAZI is None:
+        v = np.ones((len(H),1))
+    else:
+        v = np.zeros((len(H),1))
+        kljucne_rijeci = TRAZI.split(" ")
+        for kr in kljucne_rijeci:
+            vect = search.get(kr)
+            if vect is not None:
+                for num in vect:
+                    v[num] += 1
     v = v / sum(v)
+
 
     pi = pagerank(H, v, w, 0.5, 0.000001)
     print("vektor:", pi)
