@@ -1,5 +1,5 @@
 # GooglePageRank
-## Demonstracija na primjeru Vikidia stranica
+## Demonstracija - Vikidia stranice
 *Vikidia* je web sjedište nalik na *Wikipediu*, ali namijenjena djeci od 8 do 13 godina. Koristimo ju za demonstraciju jer ima raznovrsnih i dobro linkovima povezanih članaka,
 ali za je razliku od Wikipedije dovoljno mala za brzo pretraživanje primitivnim crawlerom.
 ### Priprema
@@ -10,3 +10,5 @@ Skinuti `.zim` sliku Vikidije s https://download.kiwix.org/zim/vikidia. Korište
 Pokrenuti kiwix server: `kiwix-serve -p 8080 *.zim`. Sada se može pristupiti Vikidia stranicama offline na localhost:8080.
 ### Pokretanje
 Pokrenuti `python wiki_crawler3.py dat_veze.txt dat_riječi.txt`. Crawler prolazi po stranicama i sprema veze (listu susjedstva) među stranicama u dat_veze.txt i ključne riječi za svaku stranicu u dat_riječi.txt. Ovo je prilično neskalabilno rješenje, ali svrha mu je samo demonstrirati što PageRank radi i njegov odnos s personalizacijskim vektorom.
+## Demonstracija - mini web
+Mini web se sastoji od nekoliko malih rucno napravljenih offline stranica. Ideja je pokazati prednost korištenja PageRanka nad čistim preferencijskim vektorom. 
